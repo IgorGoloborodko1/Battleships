@@ -10,12 +10,26 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  resolve: {
+    extensions: ['.ts', '.js'],
+  },
   module: {
     rules: [
       {
         test: /\.ts$/,
         exclude: /node_modules/,
-        use: ['ts-loader'],
+        loader: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-env',
+              '@babel/preset-typescript'
+            ],
+            plugins: [
+              '@babel/plugin-proposal-class-properties'
+            ],
+          },
+        },
       },
       {
         test: /\.scss$/,

@@ -1,11 +1,69 @@
-body {
-    background-color: rgb(38, 77, 115);
+#root {
+    margin: auto;
+    margin-top: 65px;
+    display: flex;
+    width: 70%;
 }
 
-.header__title {
-    color: rgb(222, 222, 222);
-    font-size: 50px;
-    padding-top: 150px;
-    margin: auto;
-    width: 35%;
+.battleField {
+    margin-right: 120px;
+}
+
+.ships__item-image-container {
+    margin-bottom: 40px;
+}
+
+image {
+    display: block;
+}
+
+.row {
+    display: flex;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    border: 3px solid #050505;
+}
+
+.cell:hover {
+    background-color: salmon;
+    opacity: 0.88;
+}
+
+.miss {
+    background-image: url(./img/missed.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.hit {
+    background-image: url(./img/hit-big.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.ships__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    list-style: none;
+}
+
+.ships__item {
+    display: flex;
+    align-content: stretch;
+}
+
+.single {
+    position: relative;
+}
+
+.single.hit::before {
+    content: '';
+    position: absolute;
+    background-image: url(./img/hit-big.png);
 }
