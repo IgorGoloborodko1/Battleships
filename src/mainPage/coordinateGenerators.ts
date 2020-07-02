@@ -1,7 +1,6 @@
 import { CELL_STATE, SHIP_DIRESCTION,  BATTLE_GRID_START_POINT, BATTLE_GRID_END_POINT} from './constants';
-import { Ship } from './shipModel';
 import { generateRnd } from './utils';
-import { BattleFieldModel } from  './battleFieldModel';
+import { BattleField } from  './battleFieldModel';
 
 export function generateCoordinates(length: number): any[] {
 	const direction: string = SHIP_DIRESCTION[generateRnd(1)];
@@ -23,14 +22,14 @@ export function generateCoordinates(length: number): any[] {
     return [startPointVer, startPointHor, direction, length];
 }
 
-export function cellsToExripe(startPointVer: number, startPointHor: number, direction: string, length: number) {
+export function getCellsToExripe({startPointVer, startPointHor, direction, length}) {
 	const [verStart, verEnd, horStart, horEnd] = findValidationEdgePoints(startPointVer, startPointHor, direction, length);
 
 	const coords = [];
 
 	for (let i = verStart; i <= verEnd; i++) {
 		for (let j = horStart; j <= horEnd; j++) {
-			if (BattleFieldModel.grid[i][j] === CELL_STATE.notAvailable) {
+			if (BattleField.grid[i][j] === CELL_STATE.notAvailable) {
 				continue;
 			}
 			coords.push(`${i}:${j}`);
@@ -45,7 +44,7 @@ function validateCoordinates(startPointVer: number, startPointHor: number, direc
  
 	for (let i = verStart; i <= verEnd; i++) {
 		for (let j = horStart; j <= horEnd; j++) {
-			if (BattleFieldModel.grid[i][j] === CELL_STATE.notAvailable) {
+			if (BattleField.grid[i][j] === CELL_STATE.notAvailable) {
 				return false;
 			}
 		}

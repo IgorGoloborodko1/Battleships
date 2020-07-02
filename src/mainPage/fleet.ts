@@ -1,12 +1,12 @@
 import { Ship } from "./shipModel";
-import { SHIP_TYPES } from './shipTypes';
+import { SHIP_TYPES } from './constants';
 import { generateCoordinates } from "./coordinateGenerators";
-import { BattleFieldModel } from "./battleFieldModel";
+import { BattleField } from "./battleFieldModel";
 
 export class Fleet {
-    private _fleetSquad: Ship[];
+    public fleetSquad: Ship[];
     constructor() {
-        this._fleetSquad = this.initSquad();
+        this.fleetSquad = this.initSquad();
     }
 
     private initSquad(): Ship[] {
@@ -18,7 +18,7 @@ export class Fleet {
                 const [startPointVer, startPointHor, direction, length] = generateCoordinates(type.length);
                 arr.push(new Ship(startPointVer, startPointHor, direction, length));
 
-                BattleFieldModel.martNotAvailableCells(startPointVer, startPointHor, direction, length);
+                BattleField.martNotAvailableCells(startPointVer, startPointHor, direction, length);
             }
         });
 

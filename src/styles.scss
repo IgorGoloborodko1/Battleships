@@ -1,3 +1,44 @@
+//Wellcome page
+//======================
+.welcome-page {
+    display: flex;
+    align-items: center;
+
+    &__container{
+        width: 40%;
+        align-self: center;
+        height: 200px;
+        margin: auto;
+        margin-top: 125px;
+    }
+
+    &__form-input-label{
+        display: block;
+    }
+
+    &__form-input-label{
+        display: block;
+    }
+
+    &__form-submit{
+        display: block;
+    }
+
+}
+
+
+//Main page
+//======================
+.game-info {
+    width: 20%;
+    margin: auto;
+    margin-top: 50px;
+
+    &__progress-bar-label {
+        display: block;
+    }
+}
+
 #root {
     margin: auto;
     margin-top: 65px;
@@ -10,11 +51,13 @@
 }
 
 .ships__item-image-container {
+    position: relative;
+    display: flex;
     margin-bottom: 40px;
 }
 
-image {
-    display: block;
+.ships__item-image {
+    display: flex;
 }
 
 .row {
@@ -46,6 +89,28 @@ image {
     background-size: contain;
 }
 
+.hole-container {
+    // visibility: hidden;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background-image: url(./img/hit-big.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
+.hole {
+    // visibility: hidden;
+    width: 35px;
+    height: 35px;
+    background-image: url(./img/hit-big.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 .ships__list {
     display: flex;
     flex-direction: column;
@@ -55,7 +120,6 @@ image {
 
 .ships__item {
     display: flex;
-    align-content: stretch;
 }
 
 .single {
@@ -67,3 +131,5 @@ image {
     position: absolute;
     background-image: url(./img/hit-big.png);
 }
+//Goodbye page
+//======================

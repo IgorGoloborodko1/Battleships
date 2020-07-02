@@ -5,9 +5,13 @@ const { postcss } = require('autoprefixer');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: ['./src/index.ts'],
+  entry: {
+    welcome: './src/welcomePage/welcome.ts',
+    main: './src/mainPage/main.ts',
+    goodbye: './src/goodbyePage/goodbye.ts'
+  },
   output: {
-    filename: 'bundle.js',
+    filename: './[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
   resolve: {
@@ -46,8 +50,23 @@ module.exports = {
     new HtmlWebpackPlugin({
         inject: true,
         hash: true,
-        template: './public/index.html',
+        chunks: ['welcome'],
+        template: './src/welcomePage/welcomePage.html',
         filename: 'index.html'
+      }),
+      new HtmlWebpackPlugin({
+        inject: true,
+        hash: true,
+        chunks: ['main'],
+        template: './src/mainPage/mainPage.html',
+        filename: 'main.html'
+      }),
+      new HtmlWebpackPlugin({
+        inject: true,
+        hash: true,
+        chunks: ['goodbye'],
+        template: './src/goodbyePage/goodbyePage.html',
+        filename: 'goodbye.html'
       }),
     new MiniCssExtractPlugin({
         filename: 'styles.css',
