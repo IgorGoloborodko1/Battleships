@@ -1,4 +1,4 @@
-import { Ship } from "./shipModel";
+import { Ship } from './ship';
 import { SHIP_TYPES } from './constants';
 import { generateCoordinates } from "./coordinateGenerators";
 import { BattleField } from "./battleFieldModel";

@@ -43,3 +43,7 @@ const SINGLE =  {
 export const SHIP_TYPES = [
     SINGLE, DOUBLE, TRIPLE, QUADRUPLE
 ];
+
+if(length === 4) {
+    
+}

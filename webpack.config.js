@@ -8,7 +8,8 @@ module.exports = {
   entry: {
     welcome: './src/welcomePage/welcome.ts',
     main: './src/mainPage/main.ts',
-    goodbye: './src/goodbyePage/goodbye.ts'
+    lost: './src/lostPage/lost.ts',
+    won: './src/wonPage/won.ts',
   },
   output: {
     filename: './[name].bundle.js',
@@ -64,9 +65,16 @@ module.exports = {
       new HtmlWebpackPlugin({
         inject: true,
         hash: true,
-        chunks: ['goodbye'],
-        template: './src/goodbyePage/goodbyePage.html',
-        filename: 'goodbye.html'
+        chunks: ['lost'],
+        template: './src/lostPage/lostPage.html',
+        filename: 'lost.html'
+      }),
+      new HtmlWebpackPlugin({
+        inject: true,
+        hash: true,
+        chunks: ['won'],
+        template: './src/wonPage/wonPage.html',
+        filename: 'won.html'
       }),
     new MiniCssExtractPlugin({
         filename: 'styles.css',

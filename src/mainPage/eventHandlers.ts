@@ -1,9 +1,9 @@
 import { Fleet } from './fleet';
-import { Ship } from './shipModel';
+import { Ship } from './ship';
 import { getCellsToExripe } from './coordinateGenerators';
 import { ProgressBar } from './progresBar';
 
-export function onCellClick(event, fleet: Fleet) {
+export function gionCellClick(event, fleet: Fleet) {
     const classList = event.target.classList;
     const targetElementId: string = event.target.id;
     const targetShip: Ship = getTargetShip(fleet.fleetSquad, targetElementId);
@@ -17,7 +17,7 @@ export function onCellClick(event, fleet: Fleet) {
         const targetShipIndex: number = getTargetShipIndex(fleet.fleetSquad, targetShip);
 
         classList.add('hit');
-        getShipsElements();
+        showDamage(targetShip.name);
         targetShip.coordinates.splice(targetCoordinatesIndex, 1);
 
 		if(!targetShip.coordinates.length) {
@@ -30,6 +30,10 @@ export function onCellClick(event, fleet: Fleet) {
 				expired.classList.add('miss');
             });
         }
+
+        if(!fleet.fleetSquad.length) {
+            window.location = './won.html';
+        }
         
         // event.target.removeEventListener('click', onCellClick);
     } else {
@@ -37,6 +41,8 @@ export function onCellClick(event, fleet: Fleet) {
         ProgressBar.move();
         // event.target.removeEventListener('click', onCellClick);
     }
+
+    event.stopPropagation();
 }
 
 function getTargetShip(fleetSquad: Ship[], targetElementId): Ship {
@@ -47,19 +53,9 @@ function getTargetShipIndex(fleetSquad: Ship[], ship: Ship): number {
     return fleetSquad.indexOf(ship);
 }
 
-function getShipsElements() {
-    const ships = document.querySelectorAll('.ships__item-image-container');
-    console.log(ships);
-    
+function showDamage(attributeName: string): void {
+    const container = document.querySelector(`div[data-name="${attributeName}"] .hole-container`);
     const hole = document.createElement('div');
-    const holeCont = document.createElement('div');
-
-    holeCont.className = 'hole-container';
     hole.className = 'hole';
-    ships.forEach(s => {
-        holeCont.appendChild(hole)
-    });
-    ships.forEach(s => {
-        s.appendChild(holeCont)
-    });
+    container.appendChild(hole);
 }

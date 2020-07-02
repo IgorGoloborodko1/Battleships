@@ -6,7 +6,9 @@ export class ProgressBar {
     public static move() {
         ProgressBar.bar.value = ProgressBar.start;
         ProgressBar.number.innerHTML = ProgressBar.start;
-        //if(ProgressBar.start === 30) navigate to lose page
         ProgressBar.start++;
+        if(ProgressBar.start === 30) {
+            window.location = '/lost.html';
+        }
     }
 }

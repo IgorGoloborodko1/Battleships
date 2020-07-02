@@ -53,6 +53,7 @@
 .ships__item-image-container {
     position: relative;
     display: flex;
+    justify-content: center;
     margin-bottom: 40px;
 }
 
@@ -79,22 +80,23 @@
     background-image: url(./img/missed.png);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
 }
 
 .hit {
-    background-image: url(./img/hit-big.png);
+    background-image: url(./img/fire-icon.png);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 42px 42px;
 }
 
 .hole-container {
-    // visibility: hidden;
     position: absolute;
-    top: 8px;
-    left: 8px;
-    background-image: url(./img/hit-big.png);
+    display: flex;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -102,10 +104,9 @@
 
 
 .hole {
-    // visibility: hidden;
-    width: 35px;
-    height: 35px;
-    background-image: url(./img/hit-big.png);
+    width: 42px;
+    height: 42px;
+    background-image: url(./img/fire-icon.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -124,12 +125,6 @@
 
 .single {
     position: relative;
-}
-
-.single.hit::before {
-    content: '';
-    position: absolute;
-    background-image: url(./img/hit-big.png);
 }
 //Goodbye page
 //======================

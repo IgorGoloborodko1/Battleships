@@ -1,3 +1,5 @@
+import { Ship } from './ship';
+
 export function createBattleFieldView(rows: number, cells: number): void {
     const root =document.querySelector('#root');
     const battleField = document.createElement('div');
@@ -18,4 +20,34 @@ export function createBattleFieldView(rows: number, cells: number): void {
     }
 
     root.prepend(battleField);
+}
+
+export function assingDomShipsAttributes(ship: Ship): void {
+    const [quadruple, triples, doubles, singles] = getDomShips();
+
+    if(ship.length === 4) quadruple.dataset.name = ship.name;
+
+    if(ship.length === 3) asssignAttributes(triples, ship);
+
+    if(ship.length === 2) asssignAttributes(doubles, ship);
+
+    if(ship.length === 1) asssignAttributes(singles, ship);
+}
+
+function getDomShips(): any[] {
+    const quadruple = document.querySelector('.quadruple');
+    const triples = document.querySelectorAll('.triple');
+    const doubles = document.querySelectorAll('.double');
+    const singles = document.querySelectorAll('.single');
+
+    return [quadruple, triples, doubles, singles];
+}
+
+function asssignAttributes(shipDomElement, ship: Ship): void {
+    for(let el of shipDomElement) {
+        if(!el.dataset.name) {
+            el.dataset.name = ship.name;
+            return;
+        }
+    }
 }
