@@ -1,6 +1,6 @@
 import { CELL_STATE, SHIP_DIRESCTION,  BATTLE_GRID_START_POINT, BATTLE_GRID_END_POINT} from './constants';
 import { generateRnd } from './utils';
-import { BattleField } from  './battleFieldModel';
+import { BattleField } from  './battleField';
 
 export function generateCoordinates(length: number): any[] {
 	const direction: string = SHIP_DIRESCTION[generateRnd(1)];
@@ -22,7 +22,7 @@ export function generateCoordinates(length: number): any[] {
     return [startPointVer, startPointHor, direction, length];
 }
 
-export function getCellsToExripe({startPointVer, startPointHor, direction, length}) {
+export function getCellsToExripe({startPointVer, startPointHor, direction, length}): any[] {
 	const [verStart, verEnd, horStart, horEnd] = findValidationEdgePoints(startPointVer, startPointHor, direction, length);
 
 	const coords = [];

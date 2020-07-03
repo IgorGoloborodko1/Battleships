@@ -1,10 +1,36 @@
+body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+}
+
+input[type="submit"] {
+    display: block;
+        margin: auto;
+        width: 300px;
+        height: 100px;
+        background-color: #330d8bde;
+        border: none;
+        border-radius: 10px;
+        color: rgba(255, 255, 255, 0.746);
+        padding: 15px 32px;
+        text-align: center;
+        font-size: 20px;
+}
 //Wellcome page
 //======================
 .welcome-page {
     display: flex;
-    align-items: center;
+    width: 50%;
+    margin: auto;
 
-    &__container{
+    &__title {
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    &__container {
         width: 40%;
         align-self: center;
         height: 200px;
@@ -12,16 +38,22 @@
         margin-top: 125px;
     }
 
-    &__form-input-label{
+    &__form-input-label {
         display: block;
+        text-transform: uppercase;
+        font-size: 20px;
+        margin-bottom: 15px;
+        text-align: center;
     }
 
-    &__form-input-label{
+    &__form-input {
         display: block;
-    }
-
-    &__form-submit{
-        display: block;
+        margin: auto;
+        width: 245px;
+        height: 40px;
+        font-size: 15px;
+        border-radius: 10px;
+        margin-bottom: 15px;
     }
 
 }
@@ -30,30 +62,44 @@
 //Main page
 //======================
 .game-info {
-    width: 20%;
-    margin: auto;
-    margin-top: 50px;
+    position: absolute;
+    top: 11%;
+    left: 54%;
 
     &__progress-bar-label {
         display: block;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        font-size: 16px;
+    }
+
+    &__progress-bar {
+        display: block;
+        margin-bottom: 15px;
     }
 }
 
-#root {
+.timer__display {
     margin: auto;
-    margin-top: 65px;
+}
+
+.battlefield-container {
+    margin: auto;
+    padding-top: 145px;
     display: flex;
     width: 70%;
 }
 
 .battleField {
-    margin-right: 120px;
+    margin-right: 200px;
+}
+
+.ships {
+    padding-top: 59px;
 }
 
 .ships__item-image-container {
     position: relative;
-    display: flex;
-    justify-content: center;
     margin-bottom: 40px;
 }
 
@@ -122,9 +168,38 @@
 .ships__item {
     display: flex;
 }
-
-.single {
-    position: relative;
-}
-//Goodbye page
+//Won page
 //======================
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+.won-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__rating {
+        width: 25%;
+        margin: auto;
+    }
+
+    &__rating-list {
+        margin: auto;
+    }
+
+    &__container {
+        margin-bottom: 30px;
+    }
+}
+//Lost page
+//======================
+.lost-page {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}

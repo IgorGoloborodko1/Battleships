@@ -1,7 +1,7 @@
 import { Ship } from './ship';
 
 export function createBattleFieldView(rows: number, cells: number): void {
-    const root =document.querySelector('#root');
+    const root = document.querySelector('.battlefield-container');
     const battleField = document.createElement('div');
     battleField.className = 'battleField';
 
@@ -44,7 +44,7 @@ function getDomShips(): any[] {
 }
 
 function asssignAttributes(shipDomElement, ship: Ship): void {
-    for(let el of shipDomElement) {
+    for(const el of shipDomElement) {
         if(!el.dataset.name) {
             el.dataset.name = ship.name;
             return;

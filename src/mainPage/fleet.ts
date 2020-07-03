@@ -1,7 +1,7 @@
 import { Ship } from './ship';
 import { SHIP_TYPES } from './constants';
 import { generateCoordinates } from "./coordinateGenerators";
-import { BattleField } from "./battleFieldModel";
+import { BattleField } from "./battleField";
 
 export class Fleet {
     public fleetSquad: Ship[];
